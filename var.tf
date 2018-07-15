@@ -37,5 +37,13 @@ variable "run_tests" {
 
 variable "events" {
   description = "List of maps of events that trigger lambda functions"
-  default     = []
+
+  default = [{
+    type           = ""
+    authorization  = ""
+    api_gateway_id = ""
+    method         = ""
+    path           = ""
+    stage          = ""
+  }]
 }
