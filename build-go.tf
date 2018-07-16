@@ -1,6 +1,6 @@
 resource "null_resource" "go_build" {
   provisioner "local-exec" {
-    command = "${var.run_tests ? "go test ./... && " : ""}GOOS=linux go build -o ${local.lambda_go_bin}"
+    command = "${var.vendor_command != "" ? "${var.vendor_command} && " : ""}${var.run_tests ? "go test ./... && " : ""}GOOS=linux go build -o ${local.lambda_go_bin}" //"
   }
 
   triggers {
@@ -12,7 +12,8 @@ resource "null_resource" "go_build" {
     lambda_go_zip     = "${local.lambda_go_zip}"
   }
 
-  count = "${local.lambda_go_count}"
+  depends_on = ["null_resource.validator"]
+  count      = "${local.lambda_go_count}"
 }
 
 data "archive_file" "lambda_go" {

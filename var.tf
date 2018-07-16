@@ -35,6 +35,11 @@ variable "run_tests" {
   default     = true
 }
 
+variable "vendor_command" {
+  description = "Command to run to sync vendor packages before running tests and building"
+  default     = ""
+}
+
 variable "events" {
   description = "List of maps of events that trigger lambda functions"
 

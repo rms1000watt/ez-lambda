@@ -9,10 +9,10 @@ import (
 
 // Handler handles the lambda proxy request
 func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	fmt.Println("Received body: ", request.Body)
+	outStr := "hello world from lambda 2"
 
-	body := "Your POST body: " + request.Body
-	return events.APIGatewayProxyResponse{Body: body, StatusCode: 200}, nil
+	fmt.Println(outStr)
+	return events.APIGatewayProxyResponse{Body: outStr, StatusCode: 200}, nil
 }
 
 func main() {

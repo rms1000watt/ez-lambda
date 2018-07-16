@@ -25,13 +25,11 @@ func TestHandler(t *testing.T) {
 		{
 			name: "success",
 			args: args{
-				request: events.APIGatewayProxyRequest{
-					Body: "hello world",
-				},
+				request: events.APIGatewayProxyRequest{},
 			},
 			want: events.APIGatewayProxyResponse{
 				StatusCode: 200,
-				Body:       "Your POST body: hello world",
+				Body:       "hello world from lambda 2",
 			},
 		},
 	}

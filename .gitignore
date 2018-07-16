@@ -2,3 +2,6 @@
 bin
 .terraform
 *tfstate*
+examples/rest-api-go/vendor/*
+!examples/rest-api-go/vendor/vendor.json
+saved-plan

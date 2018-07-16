@@ -43,10 +43,10 @@ locals {
   // API Gateway
   api_gateway_0               = "${lower(local.event_0_type) == "http"}"
   api_gateway_0_count         = "${local.api_gateway_0 ? 1 : 0}"
-  api_gateway_0_name          = "${local.lambda_name}-api-gateway-0"
-  api_gateway_0_new           = "${local.api_gateway_0 && local.event_0["api_gateway_id"] == ""}"
+  api_gateway_0_name          = "${local.lambda_name}-0"
+  api_gateway_0_new           = "${local.api_gateway_0 && local.event_0["api_gateway_id"] == "" && local.event_0["api_gateway_root_resource_id"] == ""}"
   api_gateway_0_path          = "${local.event_0["path"] != ""   ? local.event_0["path"]          : local.lambda_name }"
   api_gateway_0_method        = "${local.event_0["method"] != "" ? upper(local.event_0["method"]) : "GET" }"
   api_gateway_0_stage         = "${local.event_0["stage"] != ""  ? local.event_0["stage"]         : "prod" }"
-  api_gateway_0_authorization = "${local.event_0["authorization"] != "" || lower(local.event_0["authorization"]) != "none" ? local.event_0["authorization"] : "NONE" }"
+  api_gateway_0_authorization = "${local.event_0["authorization"] == "" || upper(local.event_0["authorization"]) == "NONE" ? "NONE" : local.event_0["authorization"]}"
 }

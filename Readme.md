@@ -1,5 +1,7 @@
 # EZ Lambda
 
+**DEAD IN THE WATER** Hit too many limitations.. reformatting module structure.. see [https://github.com/rms1000watt/serverless-tf](https://github.com/rms1000watt/serverless-tf).
+
 ## Introduction
 
 This is the easiest way to create AWS Lambdas using Terraform. I really love [Serverless](https://www.serverless.com) for their ease of use--but a lot of enterprises are already integrated with Terraform. So, this Terraform module is designed to be as simple to use as Serverless by using a similar naming and structure conventions as a `serverless.yml` file.
